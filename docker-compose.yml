@@ -5,8 +5,8 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - PG_USER=${POSTGRES_USER}
-      - PG_PASSWORD=${POSTGRES_PASSWORD}
-      - PG_DB=${POSTGRES_DB}
-      - PG_HOST=${RAILWAY_TCP_PROXY_DOMAIN}
-      - PG_PORT=${RAILWAY_TCP_PROXY_PORT}
+      - PG_USER=${PGUSER}
+      - PG_PASSWORD=${PGPASSWORD}
+      - PG_DB=${PGDATABASE}
+      - PG_HOST=${PGHOST}
+      - PG_PORT=${PGPORT}
