@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-i^+p(k#)*9+ftcxvic&7@=x8=h%8%708*3-96k0#e)na8eyob6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -78,14 +77,15 @@ WSGI_APPLICATION = 'djangoproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DB_DRIVER', 'django.db.backends.postgresql'),
-        'NAME': os.environ.get('PG_DB', 'postgres'),
-        'USER': os.environ.get('PG_USER', 'postgres'),
-        'PASSWORD': os.environ.get('PG_PASSWORD', 'postgres'),
-        'HOST': os.environ.get('PG_HOST', 'localhost'),
-        'PORT': os.environ.get('PG_PORT', '5432'),
+        'ENGINE': 'django.db.backends.postgresql', 
+        'NAME': os.getenv('POSTGRES_DB', 'postgres'),
+        'USER': os.getenv('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'postgres'),
+        'HOST': 'db',
+        'PORT': os.getenv('RAILWAY_TCP_PROXY_PORT', '5432'),
     }
 }
+
 
 
 # Password validation
